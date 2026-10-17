@@ -133,6 +133,16 @@ dialog.lightbox img { display: block; max-width: 100%; max-height: 86vh; margin:
 dialog.lightbox form { display: flex; justify-content: flex-end; padding-bottom: 8px; }
 dialog.lightbox button { font-family: var(--f-mono); font-size: 13px; padding: 8px 14px; background: #fff; color: #111; border: 0; cursor: pointer; }
 
+/* In the field */
+.field { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.field figure { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.field .ph { aspect-ratio: 3 / 4; max-width: 100%; overflow: hidden; background: var(--surface); }
+.field .wide { grid-column: span 2; }
+.field .wide .ph { aspect-ratio: auto; height: 100%; }
+.field img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.field figcaption { font-size: 15px; color: var(--muted); }
+.field figcaption b { display: block; color: var(--ink); font-weight: 600; }
+
 /* Two column */
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 .duo > * { min-width: 0; }
@@ -154,6 +164,8 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
   .hero, .duo { grid-template-columns: 1fr; gap: 28px; }
   .portrait { max-width: 420px; }
   .caps, .steps, .series { grid-template-columns: 1fr; }
+  .field { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .field .wide .ph { aspect-ratio: 4 / 3; height: auto; }
   .reel { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .play::after { width: 36px; height: 36px; left: 8px; bottom: 8px; }
   .seg { grid-template-columns: 1fr; gap: 10px; }
@@ -318,6 +330,32 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
     <div class="sub"><h3>Illustration &amp; design</h3><span class="mono">32 pieces · Tap to enlarge</span></div>
     <div class="wall" id="wall"></div>
     <dialog class="lightbox" id="lightbox"><form method="dialog"><button type="submit">Close ✕</button></form><img id="lightbox-img" alt=""></dialog>
+  </section>
+
+  <section aria-labelledby="field-h">
+    <div class="sec-head"><h2 id="field-h">In the field</h2><span class="mono">Behind the scenes</span></div>
+    <div class="field">
+      <figure class="wide">
+        <div class="ph"><img loading="lazy" src="media/bts-multicam.jpg" alt="Multi-camera interview shoot on a studio set with lights and cameras"></div>
+        <figcaption><b>Multi-camera studio interview</b>Producing a live-to-tape conversation across three cameras.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/bts-slate.jpg" alt="Nicholas Smith holding a slate at the interview table"></div>
+        <figcaption><b>Calling the take</b>Slating the shoot before the conversation rolls.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/bts-set-wide.jpg" alt="Wide view of the studio set with camera, lights and guests at the table"></div>
+        <figcaption><b>Building the set</b>Lighting, audio and camera placement for a studio shoot.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/bts-prague-bracelets.jpg" alt="Nicholas Smith beside the World Series of Poker Europe bracelet display in Prague"></div>
+        <figcaption><b>World Series of Poker Europe</b>On location in Prague, 2026.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/bts-prague-stage.jpg" alt="Nicholas Smith on the World Series of Poker Europe Prague 2026 feature stage"></div>
+        <figcaption><b>The feature-table stage</b>WSOP Europe broadcast set, Prague 2026.</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="duo" aria-label="Education and community">
