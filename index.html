@@ -140,6 +140,7 @@ dialog.lightbox button { font-family: var(--f-mono); font-size: 13px; padding: 8
 .field .wide { grid-column: span 2; }
 .field .wide .ph { aspect-ratio: auto; height: 100%; }
 .field img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.field video { width: 100%; height: 100%; object-fit: contain; display: block; background: #0b0f18; }
 .field figcaption { font-size: 15px; color: var(--muted); }
 .field figcaption b { display: block; color: var(--ink); font-weight: 600; }
 
@@ -324,7 +325,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
       </a>
     </div>
 
-    <div class="sub"><h3>Motion</h3><span class="mono">25 clips · Tap to play</span></div>
+    <div class="sub"><h3>Motion</h3><span class="mono">27 clips · Tap to play</span></div>
     <div class="reel" id="reel"></div>
 
     <div class="sub"><h3>Illustration &amp; design</h3><span class="mono">32 pieces · Tap to enlarge</span></div>
@@ -333,8 +334,44 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
   </section>
 
   <section aria-labelledby="field-h">
-    <div class="sec-head"><h2 id="field-h">In the field</h2><span class="mono">Nick at work · Las Vegas &amp; Prague</span></div>
+    <div class="sec-head"><h2 id="field-h">In the field</h2><span class="mono">Nick at work · Studio, location &amp; control room</span></div>
     <div class="field">
+      <figure class="wide">
+        <div class="ph"><img loading="lazy" src="media/f-ats-studio.jpg" alt="Three-camera sit-down on the All the Smoke set"></div>
+        <figcaption><b>All the Smoke · Studio session</b>Producing a multi-camera sit-down with hosts Matt Barnes and Stephen Jackson.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/f-ats-newsom.jpg" alt="California Governor Gavin Newsom on the All the Smoke set"></div>
+        <figcaption><b>All the Smoke · Gov. Gavin Newsom</b>California&rsquo;s governor sits down with Matt Barnes and Stephen Jackson.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><video controls playsinline preload="none" poster="media/f-img8334.jpg" src="media/fv-img8334.mp4" aria-label="Cody Rhodes on the All the Smoke set"></video></div>
+        <figcaption><b>All the Smoke · Cody Rhodes</b>WWE star Cody Rhodes on set.</figcaption>
+      </figure>
+      <figure class="wide">
+        <div class="ph"><img loading="lazy" src="media/f-hoh-closeup.jpg" alt="Nicholas Smith on the House of Highlights set"></div>
+        <figcaption><b>House of Highlights</b>Nick on set for a House of Highlights studio shoot.</figcaption>
+      </figure>
+      <figure class="wide">
+        <div class="ph"><img loading="lazy" src="media/f-hoh-wide.jpg" alt="Wide view of the House of Highlights studio with a live audience"></div>
+        <figcaption><b>House of Highlights · Full set</b>A multi-camera studio show in front of a live audience.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/f-boxing-gym.jpg" alt="Interview set inside a boxing gym with Crawford fight posters"></div>
+        <figcaption><b>All the Smoke Fight · Terence Crawford</b>Setting up the Crawford sit-down inside his gym.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><video controls playsinline preload="none" poster="media/f-img0069.jpg" src="media/fv-img0069.mp4" aria-label="Behind the scenes in the boxing gym"></video></div>
+        <figcaption><b>All the Smoke Fight · In the gym</b>Behind the scenes during the Crawford shoot.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/f-sgf-hp.jpg" alt="Interview setup at Summer Game Fest with Wizards of the Coast and Giant Skull executives"></div>
+        <figcaption><b>Summer Game Fest · HP &times; PC Gamer</b>Running the $1.3 million HP and PC Gamer partnership activation.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/f-ggmillions.jpg" alt="Production control room for the GGMillions poker stream, on air in 4K"></div>
+        <figcaption><b>GGMillions control room</b>Producing the largest weekly poker stream, live in 4K.</figcaption>
+      </figure>
       <figure class="wide">
         <div class="ph"><img loading="lazy" src="media/bts-multicam.jpg" alt="Multi-camera interview with Danny &quot;The Count&quot; Koker and Pete Davidson in a Las Vegas studio"></div>
         <figcaption><b>Las Vegas · Danny &ldquo;The Count&rdquo; Koker &amp; Pete Davidson</b>Producing a multi-camera conversation between the <i>Counting Cars</i> star and Pete Davidson.</figcaption>
@@ -354,6 +391,14 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
       <figure>
         <div class="ph"><img loading="lazy" src="media/bts-prague-stage.jpg" alt="Nicholas Smith on the World Series of Poker Europe Prague 2026 feature stage"></div>
         <figcaption><b>The feature-table stage</b>Nick on the WSOP Europe broadcast set, Prague 2026.</figcaption>
+      </figure>
+      <figure class="wide">
+        <div class="ph"><img loading="lazy" src="media/f-wwe-group.jpg" alt="Group photo of wrestling fans and creators with championship belts"></div>
+        <figcaption><b>Wrestling community shoot</b>Fans and creators gather for a wrestling-themed shoot.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/f-fight-week.jpg" alt="A boxer poses with young fans outside a fight-week event"></div>
+        <figcaption><b>Fight week</b>Fans meet the fighters outside the venue.</figcaption>
       </figure>
     </div>
   </section>
@@ -397,6 +442,8 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
 <script>
 (function () {
   var clips = [
+    ['wsop-qualifiers-vol3', 'WSOP Europe 2026 × GGPoker qualifiers, vol. 3', 'WSOP Europe'],
+    ['wsop-qualifiers-vol2', 'WSOP Europe 2026 × GGPoker qualifiers, vol. 2', 'WSOP Europe'],
     ['til-stringout-1-1', "Josh Allen's Journey to the NFL", 'Feature'],
     ['anim-narrow-final-1', 'Pride Month with Johnny Weir', 'Animation'],
     ['zuqsoqfh9jrdjmj', 'Lakers cinematic short', 'Short film'],
