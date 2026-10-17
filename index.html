@@ -159,6 +159,8 @@ h2 { font-size: clamp(40px, 6vw, 60px); text-transform: uppercase; font-weight: 
 .series { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
 .show { background: var(--surface); padding: 22px; display: grid; gap: 8px; align-content: start; text-decoration: none; color: var(--ink); }
 .show:hover h4, .show:focus-visible h4 { color: var(--tally); }
+.show.feature { grid-column: 1 / -1; }
+.show.feature h4 { font-size: 40px; }
 .show h4 { margin: 0; font-family: var(--f-display); font-size: 28px; text-transform: uppercase; line-height: 1; }
 .show p { color: var(--muted); font-size: 16px; }
 .show .role { color: var(--tally); }
@@ -344,6 +346,11 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
 
     <div class="sub" id="series"><h3>Series &amp; channels</h3><span class="mono">Opens on YouTube</span></div>
     <div class="series">
+      <a class="show feature" href="https://www.youtube.com/playlist?list=PL2IkYQWvB0-5HI4MkSl_j8VwXrQaXPmL4" target="_blank" rel="noopener">
+        <span class="mono role">Producer · B/R Cartoons · Emmy-winning</span>
+        <h4>The Portal ↗</h4>
+        <p>The complete nine-episode animated series from Bleacher Report&rsquo;s animation team, and the team&rsquo;s Emmy-winning work.</p>
+      </a>
       <a class="show" href="https://youtube.com/@pxl_playground" target="_blank" rel="noopener">
         <span class="mono role">Helped launch · Producer</span>
         <h4>Pixel Playground ↗</h4>
@@ -363,6 +370,26 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
         <span class="mono role">Credited · Bleacher Report</span>
         <h4>Gridiron Heights ↗</h4>
         <p>Bleacher Report's long-running animated NFL comedy, turning each week of the season into a cartoon episode.</p>
+      </a>
+      <a class="show" href="https://youtu.be/_bd-vcPGN9Q" target="_blank" rel="noopener">
+        <span class="mono role">Producer · Bleacher Report · NBA tip-off</span>
+        <h4>NBA × Naruto Opening ↗</h4>
+        <p>Bleacher Report&rsquo;s NBA season opener, rebuilt as a Naruto-style anime opening.</p>
+      </a>
+      <a class="show" href="https://www.facebook.com/share/v/1EVXNk9oWH/" target="_blank" rel="noopener">
+        <span class="mono role">Producer · Bleacher Report · NBA tip-off</span>
+        <h4>NBA × Cowboy Bebop Opening ↗</h4>
+        <p>The <i>Cowboy Bebop</i> opening, reimagined with NBA stars for the start of the season.</p>
+      </a>
+      <a class="show" href="https://www.reddit.com/r/nba/s/iM6cbJ3MmW" target="_blank" rel="noopener">
+        <span class="mono role">Producer · NBA tip-off</span>
+        <h4>NBA × Succession Opening ↗</h4>
+        <p>The <i>Succession</i> title sequence, redone as an NBA season tip-off.</p>
+      </a>
+      <a class="show" href="https://www.tiktok.com/t/ZPLS7akWs/" target="_blank" rel="noopener">
+        <span class="mono role">Producer · TikTok</span>
+        <h4>Giannis × Attack on Titan ↗</h4>
+        <p>An <i>Attack on Titan</i> clip turned into Giannis Antetokounmpo and NBA content for TikTok.</p>
       </a>
     </div>
 
@@ -431,7 +458,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
       </a>
     </div>
 
-    <div class="sub" id="motion"><h3>Motion</h3><span class="mono">28 clips · Tap to play</span></div>
+    <div class="sub" id="motion"><h3>Motion</h3><span class="mono">40 clips · Tap to play</span></div>
     <div class="reel" id="reel"></div>
 
     <div class="sub" id="illustration"><h3>Illustration &amp; design</h3><span class="mono">32 pieces · Tap to enlarge</span></div>
@@ -578,6 +605,18 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
 })();
 (function () {
   var clips = [
+    ['civ-vii', "Sid Meier's Civilization VII", '2K · Gaming'],
+    ['version-new-1080', 'NBA 2K × TNT: Game to 21', 'Gaming'],
+    ['sue-bird', 'Sue Bird: A Career', 'Feature'],
+    ['luka-doncic', 'Luka Dončić', 'Feature'],
+    ['mike-trout', 'Mike Trout: Iconic', 'Animation'],
+    ['jaylen-waddle', 'Jaylen Waddle countdown', 'NFL'],
+    ['wwe-br', 'Pro wrestling feature', 'Wrestling'],
+    ['jalen-green', 'Jalen Green', 'NBA'],
+    ['defeat', 'Gridiron: Better luck next season', 'Comedy'],
+    ['ios-clip', 'LA Kings battle mode', 'NHL'],
+    ['br-orange', 'Illustration timelapse', 'Process'],
+    ['skate3', 'Skate 3 soundtrack edit', 'Music'],
     ['art-of-ward-crawford-cold-open', 'The Art of Ward: Crawford cold open', 'Cold open'],
     ['wsop-qualifiers-vol3', 'WSOP Europe 2026 × GGPoker qualifiers, vol. 3', 'WSOP Europe'],
     ['wsop-qualifiers-vol2', 'WSOP Europe 2026 × GGPoker qualifiers, vol. 2', 'WSOP Europe'],
