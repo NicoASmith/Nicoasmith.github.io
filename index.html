@@ -40,6 +40,31 @@ body {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
+/* Top menu */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+[id] { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 72px); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+.topnav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--rule);
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.topnav-in { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; gap: 20px; min-height: 56px; }
+.brand { font-family: var(--f-display); font-weight: 900; font-size: 22px; text-transform: uppercase; text-decoration: none; color: var(--ink); white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+.brand::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--tally); }
+.navlinks { list-style: none; margin: 0 0 0 auto; padding: 0; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.navlinks::-webkit-scrollbar { display: none; }
+.navlinks a { display: block; padding: 8px 7px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; }
+.navlinks a:hover { color: var(--ink); }
+.navlinks a.on { color: var(--ink); border-bottom-color: var(--tally); }
+.menu-btn { display: none; margin-left: auto; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: var(--paper); border: 0; padding: 10px 14px; cursor: pointer; }
+@media (max-width: 1080px) {
+  .menu-btn { display: inline-block; }
+  .navlinks { display: none; position: absolute; left: 0; right: 0; top: 100%; margin: 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 2px solid var(--ink);
+    padding: 8px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); max-height: calc(100vh - 120px); overflow-y: auto; }
+  .navlinks.open { display: flex; }
+  .navlinks a { font-size: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .navlinks a.on { border-bottom-color: var(--rule); color: var(--tally); }
+}
 .wrap { max-width: 1040px; margin: 0 auto; padding-block: 40px 72px; display: grid; gap: 72px; }
 .mono { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: .95; }
@@ -177,7 +202,25 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
 </head>
 <body>
 
-<div class="wrap">
+<nav class="topnav" aria-label="Sections">
+  <div class="topnav-in">
+    <a class="brand" href="#top">Nicholas Smith</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#throughline">Framework</a></li>
+      <li><a href="#rundown">Career</a></li>
+      <li><a href="#caps">Public service</a></li>
+      <li><a href="#series">Series</a></li>
+      <li><a href="#partner">Partners</a></li>
+      <li><a href="#motion">Motion</a></li>
+      <li><a href="#illustration">Illustration</a></li>
+      <li><a href="#field-h">Field</a></li>
+      <li><a href="#about">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="wrap" id="top">
   <header class="slate">
     <div class="slate-bar">
       <span class="mono live">On air · Portfolio</span>
@@ -261,7 +304,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
     <div class="sec-head"><h2 id="work-h">Selected work</h2><span class="mono">Series · Partner content · Motion · Illustration</span></div>
     <p class="work-intro">Sports, gaming, technology, music and culture, built for the feeds where people already spend their time. Each piece takes a story a casual viewer might scroll past and makes it something they stop to watch and share.</p>
 
-    <div class="sub"><h3>Series &amp; channels</h3><span class="mono">Opens on YouTube</span></div>
+    <div class="sub" id="series"><h3>Series &amp; channels</h3><span class="mono">Opens on YouTube</span></div>
     <div class="series">
       <a class="show" href="https://youtube.com/@pxl_playground" target="_blank" rel="noopener">
         <span class="mono role">Helped launch · Producer</span>
@@ -285,7 +328,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
       </a>
     </div>
 
-    <div class="sub"><h3>Tech, gaming &amp; partner content</h3><span class="mono">Tom's Guide · TechRadar · PC Gamer</span></div>
+    <div class="sub" id="partner"><h3>Tech, gaming &amp; partner content</h3><span class="mono">Tom's Guide · TechRadar · PC Gamer</span></div>
     <div class="series">
       <a class="show" href="https://www.youtube.com/playlist?list=PLu7JK5im5dU-ZXWDb7J0K2aKqdjR8J6sg" target="_blank" rel="noopener">
         <span class="mono role">Producer · Tom's Guide</span>
@@ -325,10 +368,10 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
       </a>
     </div>
 
-    <div class="sub"><h3>Motion</h3><span class="mono">28 clips · Tap to play</span></div>
+    <div class="sub" id="motion"><h3>Motion</h3><span class="mono">28 clips · Tap to play</span></div>
     <div class="reel" id="reel"></div>
 
-    <div class="sub"><h3>Illustration &amp; design</h3><span class="mono">32 pieces · Tap to enlarge</span></div>
+    <div class="sub" id="illustration"><h3>Illustration &amp; design</h3><span class="mono">32 pieces · Tap to enlarge</span></div>
     <div class="wall" id="wall"></div>
     <dialog class="lightbox" id="lightbox"><form method="dialog"><button type="submit">Close ✕</button></form><img id="lightbox-img" alt=""></dialog>
   </section>
@@ -411,7 +454,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
     </div>
   </section>
 
-  <section class="duo" aria-label="Education and community">
+  <section class="duo" id="about" aria-label="Education and community">
     <div style="display:grid;gap:20px">
       <h2>Education</h2>
       <ul class="list">
@@ -448,6 +491,28 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
   </footer>
 </div>
 <script>
+(function () {
+  var btn = document.getElementById('menu-btn'), list = document.getElementById('navlinks');
+  function setOpen(o) { list.classList.toggle('open', o); btn.setAttribute('aria-expanded', o ? 'true' : 'false'); btn.textContent = o ? 'Close' : 'Menu'; }
+  btn.addEventListener('click', function () { setOpen(!list.classList.contains('open')); });
+  var links = Array.prototype.slice.call(list.querySelectorAll('a'));
+  links.forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  if ('IntersectionObserver' in window) {
+    var map = {};
+    links.forEach(function (a) { var t = document.getElementById(a.getAttribute('href').slice(1)); if (t) map[t.id] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && map[en.target.id]) {
+          links.forEach(function (l) { l.classList.remove('on'); });
+          map[en.target.id].classList.add('on');
+          if (getComputedStyle(btn).display === 'none') { var r = map[en.target.id].getBoundingClientRect(), lr = list.getBoundingClientRect(); if (r.left < lr.left || r.right > lr.right) list.scrollLeft += (r.left - lr.left) - (lr.width - r.width) / 2; }
+        }
+      });
+    }, { rootMargin: '-80px 0px -65% 0px' });
+    Object.keys(map).forEach(function (id) { io.observe(document.getElementById(id)); });
+  }
+})();
 (function () {
   var clips = [
     ['art-of-ward-crawford-cold-open', 'The Art of Ward: Crawford cold open', 'Cold open'],
