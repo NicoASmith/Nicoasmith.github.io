@@ -134,7 +134,7 @@ dialog.lightbox form { display: flex; justify-content: flex-end; padding-bottom:
 dialog.lightbox button { font-family: var(--f-mono); font-size: 13px; padding: 8px 14px; background: #fff; color: #111; border: 0; cursor: pointer; }
 
 /* In the field */
-.field { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.field { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: row dense; gap: 16px; }
 .field figure { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
 .field .ph { aspect-ratio: 3 / 4; max-width: 100%; overflow: hidden; background: var(--surface); }
 .field .wide { grid-column: span 2; }
@@ -347,6 +347,14 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
       <figure>
         <div class="ph"><video controls playsinline preload="none" poster="media/f-img8334.jpg" src="media/fv-img8334.mp4" aria-label="Cody Rhodes on the All the Smoke set"></video></div>
         <figcaption><b>All the Smoke · Cody Rhodes</b>WWE star Cody Rhodes on set.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/f-pixel-live-stage.jpg" alt="Pixel Playground Live stage with gaming stations and a Nickelodeon sponsor screen"></div>
+        <figcaption><b>Pixel Playground Live · The stage</b>The Nickelodeon-sponsored live tour Nick produced, set for showtime.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img loading="lazy" src="media/f-pixel-live-control.jpg" alt="Live production control area backstage at Pixel Playground Live with switchers and multiview monitors"></div>
+        <figcaption><b>Pixel Playground Live · Control</b>Running the live show from the production tables backstage.</figcaption>
       </figure>
       <figure class="wide">
         <div class="ph"><img loading="lazy" src="media/f-hoh-closeup.jpg" alt="Nicholas Smith on the House of Highlights set"></div>
