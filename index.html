@@ -82,8 +82,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--tally); outline
 h1 { font-size: clamp(64px, 15vw, 168px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; }
 h1 span { display: block; color: var(--tally); }
 .lede { font-size: clamp(19px, 2.4vw, 23px); max-width: 34ch; font-weight: 500; }
-.hero { display: grid; grid-template-columns: 1fr minmax(0, 380px); gap: 40px; align-items: end; }
-.hero-text { display: grid; gap: 32px; min-width: 0; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 40px; align-items: end; }
+.hero-text { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; min-width: 0; }
 .portrait { margin: 0; display: grid; gap: 10px; }
 .portrait-frame { position: relative; aspect-ratio: 900 / 1324; max-width: 100%; background: var(--surface); }
 .portrait-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -91,9 +91,13 @@ h1 span { display: block; color: var(--tally); }
 .portrait figcaption { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
 .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); cursor: pointer; text-decoration: none; user-select: none; }
 .btn:hover { background: transparent; color: var(--paper); }
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.stat { padding: 16px 12px; display: grid; gap: 4px; }
+.stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.stat { padding: 16px 12px; display: grid; gap: 4px; align-content: start; grid-column: span 2; min-width: 0; }
+.stat.wide { grid-column: span 3; }
 .stat + .stat { border-left: 1px solid var(--rule); }
+.stat:nth-child(3) { border-left: 0; }
+.stat:nth-child(n+3) { border-top: 1px solid var(--rule); }
+.stat.wide b { color: var(--tally); }
 .stat b { font-family: var(--f-display); font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; }
 .stat .emmy { color: var(--gold); }
 
@@ -251,6 +255,8 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
     <h1>Nicholas<span>Smith</span></h1>
       <p class="lede">Emmy-winning multimedia producer and digital architect who turns complex, niche and technical topics into moments everyone can follow.</p>
       <div class="stats" aria-label="Career highlights">
+        <div class="stat wide"><b>1B+</b><span class="mono">Impressions</span></div>
+        <div class="stat wide"><b>20M+</b><span class="mono">Followers &amp; subscribers added</span></div>
         <div class="stat"><b class="emmy">3×</b><span class="mono">Sports Emmys</span></div>
         <div class="stat"><b>7</b><span class="mono">Yrs U.S. Army</span></div>
         <div class="stat"><b>M.A.</b><span class="mono">Communications</span></div>
