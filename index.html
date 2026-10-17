@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Nicholas Smith: Emmy-winning multimedia producer, digital architect and U.S. Army veteran.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Nicholas Smith</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a broadcast rundown — a slate header, then career "segments" logged down a timecode rail, with a tally-light red as the single accent. */
+:root {
+  --paper: #f2f4f7;
+  --surface: #ffffff;
+  --ink: #111a2b;
+  --muted: #56617a;
+  --rule: #d5dae3;
+  --tally: #d7261e;
+  --gold: #a67c1a;
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0d1320; --surface: #151d2e; --ink: #e8ecf3; --muted: #9aa5ba;
+    --rule: #26304a; --tally: #ff4a3d; --gold: #d9ad4a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0d1320; --surface: #151d2e; --ink: #e8ecf3; --muted: #9aa5ba;
+  --rule: #26304a; --tally: #ff4a3d; --gold: #d9ad4a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding-block: 40px 72px; display: grid; gap: 72px; }
+.mono { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: .95; }
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--tally); outline-offset: 3px; }
+
+/* Slate */
+.slate { display: grid; gap: 28px; }
+.slate-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
+.live { display: inline-flex; align-items: center; gap: 8px; color: var(--tally); }
+.live::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--tally); animation: blink 2.4s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .live::before { animation: none; } }
+h1 { font-size: clamp(64px, 15vw, 168px); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; }
+h1 span { display: block; color: var(--tally); }
+.lede { font-size: clamp(19px, 2.4vw, 23px); max-width: 34ch; font-weight: 500; }
+.hero { display: grid; grid-template-columns: 1fr minmax(0, 380px); gap: 40px; align-items: end; }
+.hero-text { display: grid; gap: 32px; min-width: 0; }
+.portrait { margin: 0; display: grid; gap: 10px; }
+.portrait-frame { position: relative; aspect-ratio: 900 / 1324; max-width: 100%; background: var(--surface); }
+.portrait-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.portrait-frame::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 6px; background: var(--tally); }
+.portrait figcaption { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.btn { background: var(--paper); color: var(--ink); border-color: var(--paper); cursor: pointer; text-decoration: none; user-select: none; }
+.btn:hover { background: transparent; color: var(--paper); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.stat { padding: 16px 12px; display: grid; gap: 4px; }
+.stat + .stat { border-left: 1px solid var(--rule); }
+.stat b { font-family: var(--f-display); font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .emmy { color: var(--gold); }
+
+/* Sections */
+section { display: grid; gap: 28px; }
+.sec-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+h2 { font-size: clamp(40px, 6vw, 60px); text-transform: uppercase; font-weight: 900; }
+
+/* Through-line */
+.thesis { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 4.6vw, 48px); line-height: 1.05; text-transform: uppercase; max-width: 22ch; text-wrap: balance; }
+.thesis em { font-style: normal; color: var(--tally); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: step; }
+.steps li { display: grid; gap: 8px; align-content: start; border-top: 2px solid var(--ink); padding-top: 14px; counter-increment: step; }
+.steps li::before { content: "Step 0" counter(step); font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--tally); }
+.steps h3 { font-size: 28px; text-transform: uppercase; }
+.steps p { color: var(--muted); font-size: 16px; }
+
+/* Rundown */
+.rundown { display: grid; border-top: 2px solid var(--ink); }
+.seg { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding-block: 24px; border-bottom: 1px solid var(--rule); }
+.seg > * { min-width: 0; }
+.tc { display: grid; gap: 6px; align-content: start; }
+.tc .mono:first-child { color: var(--ink); }
+.seg h3 { font-size: 32px; text-transform: uppercase; font-weight: 700; }
+.seg .org { font-weight: 600; margin-top: 4px; }
+.seg p.desc { color: var(--muted); max-width: 62ch; margin-top: 10px; }
+.tag { display: inline-block; padding: 3px 8px; border: 1px solid var(--tally); color: var(--tally); }
+
+/* Capabilities */
+.caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.cap { background: var(--surface); padding: 24px; display: grid; gap: 10px; align-content: start; }
+.cap h3 { font-size: 26px; text-transform: uppercase; }
+.cap p { color: var(--muted); font-size: 16px; }
+
+/* Selected work */
+.work-intro { max-width: 60ch; color: var(--muted); }
+.sub { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.sub h3 { font-size: 30px; text-transform: uppercase; }
+.series { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.show { background: var(--surface); padding: 22px; display: grid; gap: 8px; align-content: start; text-decoration: none; color: var(--ink); }
+.show:hover h4, .show:focus-visible h4 { color: var(--tally); }
+.show h4 { margin: 0; font-family: var(--f-display); font-size: 28px; text-transform: uppercase; line-height: 1; }
+.show p { color: var(--muted); font-size: 16px; }
+.show .role { color: var(--tally); }
+.reel { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.clip { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.clip-frame { position: relative; aspect-ratio: 1; max-width: 100%; background: #0b0f18; overflow: hidden; }
+.clip-frame img, .clip-frame video { width: 100%; height: 100%; display: block; }
+.clip-frame img { object-fit: cover; }
+.clip-frame video { object-fit: contain; }
+.play { position: absolute; inset: 0; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.play::after { content: ""; position: absolute; left: 12px; bottom: 12px; width: 44px; height: 44px; border-radius: 50%; background: var(--tally) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='white'/%3E%3C/svg%3E") center / 22px no-repeat; transition: transform .15s; }
+.play:hover::after { transform: scale(1.1); }
+.clip figcaption { display: flex; justify-content: space-between; gap: 8px; }
+.clip figcaption b { font-weight: 600; font-size: 15px; line-height: 1.3; }
+.wall { columns: 4 220px; column-gap: 16px; }
+.wall button { display: block; width: 100%; margin: 0 0 16px; padding: 0; border: 0; background: var(--surface); cursor: zoom-in; break-inside: avoid; }
+.wall img { display: block; width: 100%; height: auto; }
+dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: min(92vw, 1100px); max-height: 92vh; }
+dialog.lightbox::backdrop { background: rgba(5, 8, 14, .88); }
+dialog.lightbox img { display: block; max-width: 100%; max-height: 86vh; margin: 0 auto; }
+dialog.lightbox form { display: flex; justify-content: flex-end; padding-bottom: 8px; }
+dialog.lightbox button { font-family: var(--f-mono); font-size: 13px; padding: 8px 14px; background: #fff; color: #111; border: 0; cursor: pointer; }
+
+/* Two column */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.duo > * { min-width: 0; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
+.list li { display: grid; gap: 2px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+.list li strong { font-weight: 600; }
+.list li span { color: var(--muted); font-size: 15px; }
+
+/* Contact */
+.contact { background: var(--ink); color: var(--paper); padding: 40px clamp(20px, 5vw, 48px); display: grid; gap: 20px; }
+.contact h2 { color: var(--paper); }
+.contact .mono { color: var(--paper); opacity: .7; }
+.contact p { max-width: 52ch; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip { font-family: var(--f-mono); font-size: 13px; padding: 10px 14px; border: 1px solid currentColor; border-radius: 2px; user-select: all; }
+footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 760px) {
+  .hero, .duo { grid-template-columns: 1fr; gap: 28px; }
+  .portrait { max-width: 420px; }
+  .caps, .steps, .series { grid-template-columns: 1fr; }
+  .reel { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .play::after { width: 36px; height: 36px; left: 8px; bottom: 8px; }
+  .seg { grid-template-columns: 1fr; gap: 10px; }
+  .tc { grid-auto-flow: column; justify-content: start; gap: 14px; }
+  .stat b { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="slate">
+    <div class="slate-bar">
+      <span class="mono live">On air · Portfolio</span>
+      <span class="mono">Somerville, NJ</span>
+    </div>
+    <div class="hero">
+    <div class="hero-text">
+    <h1>Nicholas<span>Smith</span></h1>
+      <p class="lede">Emmy-winning multimedia producer and digital architect who turns complex, niche and technical topics into moments everyone can follow.</p>
+      <div class="stats" aria-label="Career highlights">
+        <div class="stat"><b class="emmy">3×</b><span class="mono">Sports Emmys</span></div>
+        <div class="stat"><b>7</b><span class="mono">Yrs U.S. Army</span></div>
+        <div class="stat"><b>M.A.</b><span class="mono">Communications</span></div>
+      </div>
+    </div>
+    <figure class="portrait">
+      <div class="portrait-frame"><img src="headshot.jpg" alt="Nicholas Smith in a black suit and white shirt with a red pocket square, arms crossed" width="900" height="1324"></div>
+      <figcaption><span class="mono">Nicholas Smith</span><span class="mono">Producer · Digital Architect</span></figcaption>
+    </figure>
+    </div>
+  </header>
+
+  <section aria-labelledby="throughline">
+    <div class="sec-head"><h2 id="throughline">The through-line</h2><span class="mono">One repeatable framework</span></div>
+    <p class="thesis">Capture attention where standard brands can't go, and put the message in front of people <em>who would never go looking for it.</em></p>
+    <ol class="steps">
+      <li><h3>Translate</h3><p>Take a complex, niche or technical subject and find the version anyone can understand in seconds.</p></li>
+      <li><h3>Place</h3><p>Go where the audience already is, on the platforms and in the formats they use every day.</p></li>
+      <li><h3>Scale</h3><p>Turn that story into a shared cultural moment that travels well beyond the people who were already paying attention.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="rundown">
+    <div class="sec-head"><h2 id="rundown">Rundown</h2><span class="mono">Career log, latest first</span></div>
+    <div class="rundown">
+      <article class="seg">
+        <div class="tc"><span class="mono">2026</span><span class="mono">Former</span></div>
+        <div>
+          <h3>Head of Content</h3>
+          <p class="org">Major League Table Tennis</p>
+          <p class="desc">Led content across broadcast, social and digital for a professional league in a niche sport, bringing the game to people who had never thought to follow it.</p>
+        </div>
+      </article>
+      <article class="seg">
+        <div class="tc"><span class="mono">Contract</span><span class="mono">Former</span></div>
+        <div>
+          <h3>Senior Producer</h3>
+          <p class="org">All the Smoke Productions</p>
+          <p class="desc">Produced sports and culture programming for an athlete-led media company, from concept through final cut, for audiences that reach well past sports fans.</p>
+        </div>
+      </article>
+      <article class="seg">
+        <div class="tc"><span class="mono">Career</span><span class="mono">Sports · Gaming</span></div>
+        <div>
+          <h3>Content &amp; Social Strategy</h3>
+          <p class="org">Sports, gaming and entertainment media</p>
+          <p class="desc">A body of work in video production, social strategy and audience growth built on the same framework, and recognized with three Sports Emmy Awards.</p>
+        </div>
+      </article>
+      <article class="seg">
+        <div class="tc"><span class="mono">2013 — 2020</span><span class="mono">Service</span></div>
+        <div>
+          <h3>Staff Sergeant</h3>
+          <p class="org">United States Army</p>
+          <p class="desc">Seven years of service and leadership. Public service is the next chapter of that same commitment to mission, team and community.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="caps">
+    <div class="sec-head"><h2 id="caps">For public service</h2><span class="mono">The framework, applied to government</span></div>
+    <div class="caps">
+      <div class="cap"><span class="mono">Cam 1</span><h3>Make policy plain</h3><p>Turn legislation, budgets and programs into clear stories residents understand and act on.</p></div>
+      <div class="cap"><span class="mono">Cam 2</span><h3>Reach every constituent</h3><p>Meet people on the platforms they already use, including those who never read a press release or visit a district office.</p></div>
+      <div class="cap"><span class="mono">Cam 3</span><h3>Build the moment</h3><p>Produce announcements, town halls and community wins at a broadcast standard so the work of the office is seen and shared.</p></div>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec-head"><h2 id="work-h">Selected work</h2><span class="mono">Series · Partner content · Motion · Illustration</span></div>
+    <p class="work-intro">Sports, gaming, technology, music and culture, built for the feeds where people already spend their time. Each piece takes a story a casual viewer might scroll past and makes it something they stop to watch and share.</p>
+
+    <div class="sub"><h3>Series &amp; channels</h3><span class="mono">Opens on YouTube</span></div>
+    <div class="series">
+      <a class="show" href="https://youtube.com/@pxl_playground" target="_blank" rel="noopener">
+        <span class="mono role">Helped launch · Producer</span>
+        <h4>Pixel Playground ↗</h4>
+        <p>Roblox channel for creators Karl Jacobs and KreekCraft, built to reach a young gaming audience on the platform where it already plays.</p>
+      </a>
+      <a class="show" href="https://youtu.be/TE-2wmnwUuA" target="_blank" rel="noopener">
+        <span class="mono role">Director · Producer</span>
+        <h4>Terence Crawford Exclusive ↗</h4>
+        <p>All the Smoke Fight. Crawford sits down with Andre Ward after his upset of Canelo: the fight plan, the round he took control, and what comes next.</p>
+      </a>
+      <a class="show" href="https://www.youtube.com/playlist?list=PLoqDIJHlyN3MCUXh7LiyaPd-CmOFviJ7E" target="_blank" rel="noopener">
+        <span class="mono role">Credited · Bleacher Report</span>
+        <h4>Hero Ball ↗</h4>
+        <p>Bleacher Report's animated series that recasts the NBA season as an anime saga.</p>
+      </a>
+      <a class="show" href="https://www.youtube.com/playlist?list=PLoqDIJHlyN3PSIuqsJk0w-z-3ZJ65WIHz" target="_blank" rel="noopener">
+        <span class="mono role">Credited · Bleacher Report</span>
+        <h4>Gridiron Heights ↗</h4>
+        <p>Bleacher Report's long-running animated NFL comedy, turning each week of the season into a cartoon episode.</p>
+      </a>
+    </div>
+
+    <div class="sub"><h3>Tech, gaming &amp; partner content</h3><span class="mono">Tom's Guide · TechRadar · PC Gamer</span></div>
+    <div class="series">
+      <a class="show" href="https://www.youtube.com/playlist?list=PLu7JK5im5dU-ZXWDb7J0K2aKqdjR8J6sg" target="_blank" rel="noopener">
+        <span class="mono role">Producer · Tom's Guide</span>
+        <h4>Data Breach 101 ↗</h4>
+        <p>A limited series that teaches everyday people how to protect their personal information online. It takes a technical topic and turns it into practical advice anyone can use.</p>
+      </a>
+      <a class="show" href="https://www.youtube.com/playlist?list=PLvj1L6okKcab_PUqbztas9SN647BuieeT" target="_blank" rel="noopener">
+        <span class="mono role">Producer · TechRadar</span>
+        <h4>AI Planned It ↗</h4>
+        <p>A five-part series that puts AI planning tools to the test in real life, showing viewers what the technology can and can't do for them.</p>
+      </a>
+      <a class="show" href="https://youtu.be/oZWH2pdRwCM" target="_blank" rel="noopener">
+        <span class="mono role">Producer · PC Gamer × 2K</span>
+        <h4>A PC Fit for a Leader ↗</h4>
+        <p>A sponsored build with 2K Games: a custom-modded PC designed around Sid Meier's Civilization VII.</p>
+      </a>
+      <a class="show" href="https://youtu.be/9hx_GyljysY" target="_blank" rel="noopener">
+        <span class="mono role">Producer · PC Gaming Show 2025</span>
+        <h4>Building The Rig ↗</h4>
+        <p>Frankie Ward and Jacob Ridley build PC Gamer's flagship AMD machine live during the PC Gaming Show.</p>
+      </a>
+      <a class="show" href="https://youtu.be/w_hYnZONQro" target="_blank" rel="noopener">
+        <span class="mono role">PC Gamer · Summer Game Fest 2025</span>
+        <h4>The Next Great D&amp;D Game? ↗</h4>
+        <p>Interview with Wizards of the Coast and Giant Skull leadership on their new Dungeons &amp; Dragons game.</p>
+      </a>
+      <div class="show">
+        <span class="mono role">Branded social · Tom's Guide × Sleep Number</span>
+        <h4>Sleep Number Smart Beds</h4>
+        <p>Short-form partner videos that explain smart-bed tech in under a minute.</p>
+        <p><a href="https://www.tiktok.com/@tomsguide/video/7483210820847947051" target="_blank" rel="noopener">Testing the top smart beds ↗</a><br><a href="https://www.tiktok.com/@tomsguide/video/7483971914344566062" target="_blank" rel="noopener">Climate 360: hot and cold sleepers ↗</a></p>
+      </div>
+      <a class="show" href="https://vm.tiktok.com/ZN8SV2BFX/" target="_blank" rel="noopener">
+        <span class="mono role">Producer · PC Gamer</span>
+        <h4>Fortnite on TikTok ↗</h4>
+        <p>A short-form Fortnite video for PC Gamer's TikTok, built to reach players on the platform where they already spend their time.</p>
+      </a>
+    </div>
+
+    <div class="sub"><h3>Motion</h3><span class="mono">25 clips · Tap to play</span></div>
+    <div class="reel" id="reel"></div>
+
+    <div class="sub"><h3>Illustration &amp; design</h3><span class="mono">32 pieces · Tap to enlarge</span></div>
+    <div class="wall" id="wall"></div>
+    <dialog class="lightbox" id="lightbox"><form method="dialog"><button type="submit">Close ✕</button></form><img id="lightbox-img" alt=""></dialog>
+  </section>
+
+  <section class="duo" aria-label="Education and community">
+    <div style="display:grid;gap:20px">
+      <h2>Education</h2>
+      <ul class="list">
+        <li><strong>M.A. Communications</strong><span>University of Arkansas at Little Rock · 2022</span></li>
+        <li><strong>B.A. Creative Media Production</strong><span>Arkansas State University</span></li>
+        <li><strong>B.S. Multimedia Journalism</strong><span>Arkansas State University</span></li>
+      </ul>
+    </div>
+    <div style="display:grid;gap:20px">
+      <h2>Community</h2>
+      <ul class="list">
+        <li><strong>Omega Psi Phi Fraternity, Inc.</strong><span>Member</span></li>
+        <li><strong>National Association of Black Journalists</strong><span>Member</span></li>
+        <li><strong>Jersey Cares</strong><span>Volunteer</span></li>
+        <li><strong>Community food bank</strong><span>Volunteer</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact">
+    <span class="mono">Cue · Contact</span>
+    <h2 id="contact">Let's make something</h2>
+    <p>Ready to bring this framework to public service, helping offices across New Jersey reach every resident they represent.</p>
+    <div class="contact-row">
+      <span class="chip" id="email">nicoall3creative@gmail.com</span>
+      <button class="chip btn" id="copy-email" type="button">Copy email</button>
+      <a class="chip btn" href="https://www.linkedin.com/in/nicholas-smith-33a182127" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="mono">© 2026 Nicholas Smith</span>
+    <span class="mono">Somerville, New Jersey</span>
+  </footer>
+</div>
+<script>
+(function () {
+  var clips = [
+    ['til-stringout-1-1', "Josh Allen's Journey to the NFL", 'Feature'],
+    ['anim-narrow-final-1', 'Pride Month with Johnny Weir', 'Animation'],
+    ['zuqsoqfh9jrdjmj', 'Lakers cinematic short', 'Short film'],
+    ['warzone-timeline-v02', 'Call of Duty: Warzone timeline', 'Gaming'],
+    ['w6l-4j79eqbzd4ij', 'WNBA feature', 'Feature'],
+    ['br-iconic-rec-super-bowl-rams-final-v1', 'Super Bowl recreation: Rams', 'Animation'],
+    ['br-iconic-rec-super-bowl-bengals-final-v3', 'Super Bowl recreation: Bengals', 'Animation'],
+    ['updated', 'Ja Morant', 'Animation'],
+    ['lbj-collage-animation', 'LeBron: 20 years', 'Social'],
+    ['ncaahype-1x1-1', 'March Madness hype', 'Hype'],
+    ['stafford-flair-v1', 'Matthew Stafford, Gridiron', 'Comedy'],
+    ['undertaker-v2', 'Gridiron: Undertaker', 'Comedy'],
+    ['henry-v1', 'Gridiron: Derrick Henry', 'Comedy'],
+    ['rodgers-kendall-v1-1', 'Gridiron: Aaron Rodgers', 'Comedy'],
+    ['lat-vs-adams-bugged-1', 'Lattimore vs. Adams', 'Gridiron'],
+    ['ram-vs-rob-bugged-1', 'Ramsey vs. Robinson', 'Gridiron'],
+    ['la-v-ariz-courage-headswap-v1', 'Rams vs. Cardinals', 'Animation'],
+    ['draymondreturnwrestler-hiphop', "Draymond's return", 'Social'],
+    ['correa-square-v2', 'Carlos Correa', 'Walk Off'],
+    ['michigan-v1', 'Michigan', 'College'],
+    ['uga-v1', 'Georgia', 'College'],
+    ['br5-music-square-v4', 'NBA arcade', 'Animation'],
+    ['br-lnd-final-square-1', 'B/R animated spot', 'Animation'],
+    ['tiktok-tnt-v3', 'TNT on TikTok', 'Social'],
+    ['tw-only', 'NBA highlight cut', 'Social']
+  ];
+  var reel = document.getElementById('reel');
+  clips.forEach(function (c) {
+    var fig = document.createElement('figure'); fig.className = 'clip';
+    fig.innerHTML = '<div class="clip-frame"><img loading="lazy" src="media/p-' + c[0] + '.jpg" alt=""><button class="play" type="button" aria-label="Play ' + c[1].replace(/"/g, '&quot;') + '"></button></div><figcaption><b></b><span class="mono"></span></figcaption>';
+    fig.querySelector('b').textContent = c[1];
+    fig.querySelector('.mono').textContent = c[2];
+    fig.querySelector('.play').addEventListener('click', function () {
+      reel.querySelectorAll('video').forEach(function (v) { v.pause(); });
+      var frame = fig.querySelector('.clip-frame');
+      var v = document.createElement('video');
+      v.src = 'media/v-' + c[0] + '.mp4'; v.controls = true; v.playsInline = true; v.poster = 'media/p-' + c[0] + '.jpg';
+      frame.innerHTML = ''; frame.appendChild(v);
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    });
+    reel.appendChild(fig);
+  });
+  var art = ['CM Punk, Best in the World', 'CM Punk illustration', 'MLB Postseason poster', 'Fury vs. Wilder', 'NBA Olympus', 'T-Pain as Doom Slayer', 'T-Pain as Master Chief', 'T-Pain dragon portrait', 'Canelo, undisputed', 'Kris Bryant, Mariners concept', 'Cam Newton as Superman',
+    'Champions League Last 16, page 1', 'Champions League Last 16, page 2', 'Champions League Last 16, page 3', 'Champions League Last 16, page 4', 'Alabama Heisman Gallery', 'King Henry', 'Multiverse of March Madness cover', 'Multiverse: Parker and Taurasi', 'Multiverse: Kobe at Duke', 'Multiverse: Melo at UConn', 'Multiverse: Morant and Zion', 'Multiverse: Kentucky reunion', 'Multiverse: Ball brothers at UCLA', 'Ohtani anime',
+    'Four-ring ride', 'Rhyne Howard, Rookie of the Year', 'MLB lockout ends', 'Candace Parker, WNBA champion', 'Breanna Stewart trophy case', "A'ja Wilson", 'NBA Street Vol. 22'];
+  var wall = document.getElementById('wall'), box = document.getElementById('lightbox'), boxImg = document.getElementById('lightbox-img');
+  art.forEach(function (t, i) {
+    var n = (i + 1 < 10 ? '0' : '') + (i + 1), b = document.createElement('button'), img = document.createElement('img');
+    b.type = 'button'; b.setAttribute('aria-label', 'Enlarge ' + t);
+    img.src = 'media/g' + n + '.jpg'; img.alt = t; img.loading = 'lazy';
+    b.appendChild(img); wall.appendChild(b);
+    b.addEventListener('click', function () {
+      boxImg.src = img.src; boxImg.alt = t;
+      if (box.showModal) box.showModal(); else box.setAttribute('open', '');
+    });
+  });
+  box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+})();
+document.getElementById('copy-email').addEventListener('click', function () {
+  var btn = this, el = document.getElementById('email');
+  function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
+  function fallback() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; }
+  try { navigator.clipboard.writeText(el.textContent).then(done, fallback); } catch (e) { fallback(); }
+});
+</script>
+
+</body>
+</html>
