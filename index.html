@@ -160,6 +160,7 @@ h2 { font-size: clamp(40px, 6vw, 60px); text-transform: uppercase; font-weight: 
 .show { background: var(--surface); padding: 22px; display: grid; gap: 8px; align-content: start; text-decoration: none; color: var(--ink); }
 .show:hover h4, .show:focus-visible h4 { color: var(--tally); }
 .show.feature { grid-column: 1 / -1; }
+.show-video { width: 100%; max-width: 100%; aspect-ratio: 1; display: block; background: #0b0f18; margin-bottom: 6px; }
 .show.feature h4 { font-size: 40px; }
 .show h4 { margin: 0; font-family: var(--f-display); font-size: 28px; text-transform: uppercase; line-height: 1; }
 .show p { color: var(--muted); font-size: 16px; }
@@ -381,11 +382,12 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
         <h4>NBA × Cowboy Bebop Opening ↗</h4>
         <p>The <i>Cowboy Bebop</i> opening, reimagined with NBA stars for the start of the season.</p>
       </a>
-      <a class="show" href="https://www.reddit.com/r/nba/s/iM6cbJ3MmW" target="_blank" rel="noopener">
-        <span class="mono role">Producer · NBA tip-off</span>
-        <h4>NBA × Succession Opening ↗</h4>
-        <p>The <i>Succession</i> title sequence, redone as an NBA season tip-off.</p>
-      </a>
+      <div class="show">
+        <video class="show-video" controls playsinline preload="none" poster="media/p-succession-tipoff.jpg" src="media/v-succession-tipoff.mp4" aria-label="NBA × Succession opening"></video>
+        <span class="mono role">Producer · Bleacher Report · NBA tip-off</span>
+        <h4>NBA × Succession Opening</h4>
+        <p>The <i>Succession</i> title sequence, redone as Bleacher Report&rsquo;s NBA season tip-off.</p>
+      </div>
       <a class="show" href="https://www.tiktok.com/t/ZPLS7akWs/" target="_blank" rel="noopener">
         <span class="mono role">Producer · TikTok</span>
         <h4>Giannis × Attack on Titan ↗</h4>
