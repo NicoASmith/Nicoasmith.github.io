@@ -161,6 +161,7 @@ h2 { font-size: clamp(40px, 6vw, 60px); text-transform: uppercase; font-weight: 
 .show:hover h4, .show:focus-visible h4 { color: var(--tally); }
 .show.feature { grid-column: 1 / -1; }
 .show-video { width: 100%; max-width: 100%; aspect-ratio: 1; display: block; background: #0b0f18; margin-bottom: 6px; }
+.show-video.wide-video { aspect-ratio: 16 / 9; }
 .show.feature h4 { font-size: 40px; }
 .show h4 { margin: 0; font-family: var(--f-display); font-size: 28px; text-transform: uppercase; line-height: 1; }
 .show p { color: var(--muted); font-size: 16px; }
@@ -378,7 +379,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
         <p>Bleacher Report&rsquo;s NBA season opener, rebuilt as a Naruto-style anime opening.</p>
       </a>
       <div class="show">
-        <video class="show-video" controls playsinline preload="none" poster="media/p-bebop-tipoff.jpg" src="media/v-bebop-tipoff.mp4" aria-label="NBA × Cowboy Bebop opening"></video>
+        <video class="show-video wide-video" controls playsinline preload="none" poster="media/p-bebop-tipoff.jpg" src="media/v-bebop-tipoff.mp4" aria-label="NBA × Cowboy Bebop opening"></video>
         <span class="mono role">Producer · Bleacher Report · NBA tip-off</span>
         <h4>NBA × Cowboy Bebop Opening</h4>
         <p>The <i>Cowboy Bebop</i> opening, reimagined with NBA stars for the start of the season.</p>
