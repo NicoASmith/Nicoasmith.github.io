@@ -88,6 +88,7 @@ h1 span { display: block; color: var(--tally); }
 .hero-contact .chip { text-decoration: none; color: var(--ink); }
 .feature-video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #0b0f18; }
 .feature-cap { margin-top: 10px; max-width: 60ch; }
+.feature-cap .mono { display: block; margin-bottom: 4px; }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 40px; align-items: end; }
 .hero-text { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; min-width: 0; }
 .portrait { margin: 0; display: grid; gap: 10px; }
@@ -298,6 +299,10 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
     <div class="hero-text">
     <h1>Nicholas<span>Smith</span></h1>
       <p class="lede">Emmy-winning multimedia producer and digital architect who turns complex, niche and technical topics into moments everyone can follow.</p>
+      <div class="hero-feature" aria-label="Featured cut">
+        <video class="feature-video" controls playsinline preload="none" poster="media/p-art-of-ward-crawford-cold-open.jpg" src="media/v-art-of-ward-crawford-cold-open.mp4" aria-label="The Art of Ward: Crawford cold open"></video>
+        <p class="feature-cap"><span class="mono">Featured cut · Director · Producer</span> Cold open for <i>The Art of Ward</i>, All the Smoke Fight: Terence Crawford&rsquo;s sit-down with Andre Ward after his upset of Canelo. Nick directed and produced the full episode.</p>
+      </div>
       <div class="stats" aria-label="Career highlights">
         <div class="stat wide"><b>1B+</b><span class="mono">Impressions</span></div>
         <div class="stat wide"><b>20M+</b><span class="mono">Followers &amp; subscribers added</span></div>
@@ -320,11 +325,6 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
     </div>
   </header>
 
-  <section class="featured" aria-labelledby="featured-h">
-    <div class="sec-head"><h2 id="featured-h">Featured cut</h2><span class="mono">Director · Producer · 87 sec</span></div>
-    <video class="feature-video" controls playsinline preload="none" poster="media/p-art-of-ward-crawford-cold-open.jpg" src="media/v-art-of-ward-crawford-cold-open.mp4" aria-label="The Art of Ward: Crawford cold open"></video>
-    <p class="feature-cap">Cold open for <i>The Art of Ward</i>, All the Smoke Fight. Nick directed and produced the full episode, Terence Crawford&rsquo;s sit-down with Andre Ward after his upset of Canelo, including this open.</p>
-  </section>
 
   <section id="service" aria-labelledby="service-h">
     <div class="sec-head"><h2 id="service-h">Service &amp; civic work</h2><span class="mono">For public offices · at a glance</span></div>
